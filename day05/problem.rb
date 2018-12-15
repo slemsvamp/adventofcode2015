@@ -1,4 +1,3 @@
-require 'digest'
 TEST = ARGV.delete('-t')
 input = if TEST
 	['ugknbfddgicrmopa','aeroacdttieaoiea','jcdzalrnumiwwwpz','qjhvhtzxzqqjkmpb','xxyxx','uurcxstgmygtbstg','ieodomkazucvgmuy']
