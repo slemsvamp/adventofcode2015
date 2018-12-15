@@ -2,7 +2,7 @@ TEST = ARGV.delete('-t')
 input = if TEST
 	['ugknbfddgicrmopa','aeroacdttieaoiea','jcdzalrnumiwwwpz','qjhvhtzxzqqjkmpb','xxyxx','uurcxstgmygtbstg','ieodomkazucvgmuy']
 else
-	ARGV.empty? ? INPUT : ARGF.each_line.freeze
+	ARGV.empty? ? INPUT : ARGF.each_line
 end
 v = 'aeiou'
 n = ['ab','cd','pq','xy']
@@ -13,12 +13,8 @@ input.each { |i|
 	dl = dw = tw = false
 	ni = n.map { |nv| i.include?(nv) ? 1 : 0 }
 	is.each_with_index { |isv,ix|
-		if ix != 0 && is[ix-1] == is[ix] then
-			dl = true
-		end
-		if ix <= is.length - 3 && is[ix+2] == is[ix] then
-			dw = true
-		end
+		dl = true if ix != 0 && is[ix-1] == is[ix]
+		dw = true if ix <= is.length - 3 && is[ix+2] == is[ix]
 		if ix <= is.length - 4 then
 			pr = is[ix]+is[ix+1]
 			if i[ix+2..-1].index(pr) != nil then tw = true end
